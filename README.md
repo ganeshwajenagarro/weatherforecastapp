@@ -55,8 +55,8 @@ src/
 
 1. Clone the repository:
 ```bash
-git clone [repository-url]
-cd weather-app
+git clone https://github.com/ganeshwajenagarro/weatherforecastapp.git
+cd weatherforecastapp
 ```
 
 2. Install dependencies:
@@ -65,9 +65,9 @@ npm install
 ```
 
 3. Configure API key:
-   - Sign up at WeatherAPI.com to get an API key
-   - Create a .env file in the root directory
-   - Add your API key: `WEATHER_API_KEY=your_api_key_here`
+   - Default API added in code inside src/api/weatherApi.ts
+   - If need to update the key then 
+   - Add your API key: `const API_KEY = your_api_key_here`
 
 4. Install iOS dependencies (macOS only):
 ```bash
@@ -95,80 +95,26 @@ npm run ios
    - Provides good TypeScript integration
    - Includes built-in tools for handling async actions
 
-2. **TypeScript**
-   - Ensures type safety
-   - Improves code maintainability
-   - Better IDE support and developer experience
-
-3. **Folder Structure**
+2. **Folder Structure**
    - Component-based organization
    - Separate folders for screens, components, and store
    - Clear separation of concerns
-
-4. **API Integration**
-   - WeatherAPI.com chosen for:
-     - Reliable and accurate data
-     - Good documentation
-     - Free tier availability
-     - Rich weather information
-
-## Code Quality Measures
-
-- TypeScript for type safety
-- ESLint for code quality
-- Prettier for consistent formatting
-- Component-based architecture
-- Clean code practices
-- Error handling
-- Loading states
 
 ## Areas for Improvement
 
 Future enhancements could include:
 - Unit tests using Jest
 - E2E tests using Detox
-- Offline support with data persistence
 - Location-based weather detection
 - Weather alerts
 - Additional weather details
 - Dark mode support
 - Multiple language support
 
-## Running Tests
-
-```bash
-# Run unit tests
-npm test
-
-# Run with coverage
-npm run test:coverage
-```
-
-## Performance Considerations
-
-- Image caching for weather icons
-- Redux state persistence
-- Optimized re-renders
-- Error boundary implementation
-- Proper TypeScript types for type safety
-
 ## Screenshots
 
-[Would include screenshots here showing different states of the app]
-
-## Notes for Reviewers
-
-- The app follows React Native best practices
-- Implements proper error handling
-- Uses TypeScript throughout
-- Follows a clean architecture pattern
-- Includes proper loading states
-- Handles edge cases appropriately
+![iOS Screenshot](./screenshot-ios.png)
 
 ## Author
 
-[Your Name]
-
-## License
-
-MIT
+Ganesh Waje

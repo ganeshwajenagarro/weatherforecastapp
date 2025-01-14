@@ -7,5 +7,3 @@ export type RootStackParamList = {
 };
 
 export type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>;
-export type ForecastScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Forecast'>;
-export type ForecastScreenRouteProp = RouteProp<RootStackParamList, 'Forecast'>;

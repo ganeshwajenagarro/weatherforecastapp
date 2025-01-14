@@ -1,4 +1,3 @@
-// src/store/weatherSlice.ts
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { weatherApi } from '../api/weatherApi';
 import { WeatherData } from '../types/weather';
