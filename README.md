@@ -66,7 +66,7 @@ npm install
 3. Configure API key:
    - Default API added in code inside src/api/weatherApi.ts
    - If need to update the key then 
-   - Add your API key: `const API_KEY = your_api_key_here`
+   - Add your API key: `const API_KEY = your_api_key_here` in file `src/api/weatherApi.ts`
 
 4. Install iOS dependencies (macOS only):
 ```bash

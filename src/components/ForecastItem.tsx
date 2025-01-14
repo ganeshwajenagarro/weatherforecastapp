@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
-import { ForecastDay } from '../../types/weather';
+import { ForecastDay } from '../types/weather';
 
 interface Props {
   forecast: ForecastDay;
