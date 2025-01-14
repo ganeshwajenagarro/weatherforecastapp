@@ -2,7 +2,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { weatherApi } from '../api/weatherApi';
 import { WeatherData } from '../types/weather';
 
-// Define the state type
 interface WeatherState {
   data: WeatherData | null;
   loading: boolean;
@@ -10,7 +9,6 @@ interface WeatherState {
   lastUpdated: number | null;
 }
 
-// Define the initial state
 const initialState: WeatherState = {
   data: null,
   loading: false,
@@ -18,7 +16,6 @@ const initialState: WeatherState = {
   lastUpdated: null,
 };
 
-// Define the async thunk for fetching weather
 interface FetchWeatherParams {
   city: string;
   days: number;

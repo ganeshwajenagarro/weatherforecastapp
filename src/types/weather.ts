@@ -25,7 +25,6 @@ export interface WeatherData {
     condition: string;
   }
   
-  // Add types for WeatherAPI.com response
 export interface WeatherApiResponse {
     location: {
       name: string;

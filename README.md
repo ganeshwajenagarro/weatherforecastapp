@@ -35,7 +35,6 @@ src/
 ├── components/
 │   ├── SearchBar.tsx
 │   ├── CurrentWeather.tsx
-│   ├── LoadingSpinner.tsx
 │   └── ForecastItem.tsx
 ├── navigation/
 │   ├── types.ts

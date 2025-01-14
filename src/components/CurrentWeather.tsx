@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
-import { WeatherData } from '../../types/weather';
+import { WeatherData } from '../types/weather';
 
 interface Props {
   data: WeatherData['current'];

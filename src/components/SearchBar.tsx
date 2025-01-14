@@ -1,4 +1,3 @@
-// src/components/SearchBar/index.tsx
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, View, TouchableOpacity, Text } from 'react-native';
 
