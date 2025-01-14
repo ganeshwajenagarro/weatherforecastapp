@@ -1,26 +1,20 @@
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 import { WeatherData, WeatherApiResponse } from '../types/weather';
 
 const API_KEY = 'e52a6372783e4a689df63118251401';
 const BASE_URL = 'https://api.weatherapi.com/v1';
 
-const api = axios.create({
-  baseURL: BASE_URL,
-  params: {
-    key: API_KEY,
-    days: 5,
-    aqi: 'no',
-    alerts: 'no'
-  },
-});
-
-// https://api.weatherapi.com/v1/forecast.json?key=e52a6372783e4a689df63118251401&q=London&days=2&aqi=no&alerts=no
-
 export const weatherApi = {
-  async getWeatherByCity(city: string): Promise<WeatherData> {
+  async getWeatherByCity(city: string, days: number = 5): Promise<WeatherData> {
     try {
-      const response = await api.get<WeatherApiResponse>('/forecast.json', {
-        params: { q: city }
+      const response = await axios.get<WeatherApiResponse>(`${BASE_URL}/forecast.json`, {
+        params: {
+          key: API_KEY,
+          q: city,
+          days: days,
+          aqi: 'no',
+          alerts: 'no'
+        }
       });
       return transformWeatherData(response.data);
     } catch (error) {
@@ -28,14 +22,11 @@ export const weatherApi = {
         if (error.response?.status === 400) {
           throw new Error(`City "${city}" not found`);
         }
-        if (error.response?.status === 401) {
-          throw new Error('Invalid API key. Please check your configuration.');
-        }
         throw new Error(error.response?.data?.error?.message || 'Failed to fetch weather data');
       }
       throw new Error('An unexpected error occurred');
     }
-  },
+  }
 };
 
 function transformWeatherData(data: WeatherApiResponse): WeatherData {

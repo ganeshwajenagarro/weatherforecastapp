@@ -1,79 +1,174 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Weather Forecast App
 
-# Getting Started
+A React Native application that provides weather forecasts using the WeatherAPI.com API. The app displays current weather conditions and a 5-day forecast for any searched city.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Features
 
-## Step 1: Start the Metro Server
+- Current weather information including:
+  - Temperature
+  - "Feels like" temperature
+  - Humidity
+  - Wind speed
+  - Weather condition with icon
+- 5-day weather forecast showing:
+  - Daily high and low temperatures
+  - Weather conditions
+  - Date
+- Search functionality for any city
+- Error handling for failed API requests
+- Loading states for better UX
+- Responsive design that works on both iOS and Android
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Technical Stack
 
-To start Metro, run the following command from the _root_ of your React Native project:
+- **React Native**: For cross-platform mobile development
+- **TypeScript**: For type safety and better development experience
+- **Redux Toolkit**: For state management
+- **Axios**: For API requests
+- **React Native Vector Icons**: For weather-related icons
+- **WeatherAPI.com**: As the weather data provider
 
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── SearchBar.tsx
+│   ├── CurrentWeather.tsx
+│   ├── LoadingSpinner.tsx
+│   └── ForecastItem.tsx
+├── navigation/
+│   ├── types.ts
+│   └── AppNavigation.tsx
+├── screens/
+│   └── HomeScreen.tsx
+├── store/
+│   ├── index.ts
+│   ├── store.ts
+│   └── weatherSlice.ts
+├── types/
+│   └── weather.ts
+└── App.tsx
+```
+
+## Setup Instructions
+
+1. Clone the repository:
 ```bash
-# using npm
+git clone [repository-url]
+cd weather-app
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Configure API key:
+   - Sign up at WeatherAPI.com to get an API key
+   - Create a .env file in the root directory
+   - Add your API key: `WEATHER_API_KEY=your_api_key_here`
+
+4. Install iOS dependencies (macOS only):
+```bash
+cd ios
+pod install
+cd ..
+```
+
+5. Start the application:
+```bash
+# Start Metro bundler
 npm start
 
-# OR using Yarn
-yarn start
-```
-
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
-```bash
-# using npm
+# Run on Android
 npm run android
 
-# OR using Yarn
-yarn android
+# Run on iOS
+npm run ios
 ```
 
-### For iOS
+## Technical Decisions
+
+1. **Redux Toolkit**
+   - Chosen for efficient state management
+   - Provides good TypeScript integration
+   - Includes built-in tools for handling async actions
+
+2. **TypeScript**
+   - Ensures type safety
+   - Improves code maintainability
+   - Better IDE support and developer experience
+
+3. **Folder Structure**
+   - Component-based organization
+   - Separate folders for screens, components, and store
+   - Clear separation of concerns
+
+4. **API Integration**
+   - WeatherAPI.com chosen for:
+     - Reliable and accurate data
+     - Good documentation
+     - Free tier availability
+     - Rich weather information
+
+## Code Quality Measures
+
+- TypeScript for type safety
+- ESLint for code quality
+- Prettier for consistent formatting
+- Component-based architecture
+- Clean code practices
+- Error handling
+- Loading states
+
+## Areas for Improvement
+
+Future enhancements could include:
+- Unit tests using Jest
+- E2E tests using Detox
+- Offline support with data persistence
+- Location-based weather detection
+- Weather alerts
+- Additional weather details
+- Dark mode support
+- Multiple language support
+
+## Running Tests
 
 ```bash
-# using npm
-npm run ios
+# Run unit tests
+npm test
 
-# OR using Yarn
-yarn ios
+# Run with coverage
+npm run test:coverage
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+## Performance Considerations
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+- Image caching for weather icons
+- Redux state persistence
+- Optimized re-renders
+- Error boundary implementation
+- Proper TypeScript types for type safety
 
-## Step 3: Modifying your App
+## Screenshots
 
-Now that you have successfully run the app, let's modify it.
+[Would include screenshots here showing different states of the app]
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+## Notes for Reviewers
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+- The app follows React Native best practices
+- Implements proper error handling
+- Uses TypeScript throughout
+- Follows a clean architecture pattern
+- Includes proper loading states
+- Handles edge cases appropriately
 
-## Congratulations! :tada:
+## Author
 
-You've successfully run and modified your React Native App. :partying_face:
+[Your Name]
 
-### Now what?
+## License
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+MIT

@@ -1,13 +1,12 @@
-// src/components/SearchBar.tsx
+// src/components/SearchBar/index.tsx
 import React, { useState } from 'react';
-import { StyleSheet, TextInput, View, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { StyleSheet, TextInput, View, TouchableOpacity, Text } from 'react-native';
 
 interface SearchBarProps {
   onSearch: (city: string) => void;
 }
 
-export const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
+function SearchBar({ onSearch }: SearchBarProps) {
   const [query, setQuery] = useState('');
 
   const handleSearch = () => {
@@ -27,12 +26,15 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
         returnKeyType="search"
         onSubmitEditing={handleSearch}
       />
-      <TouchableOpacity onPress={handleSearch} style={styles.button}>
-        <Icon name="search" size={24} color="white" />
+      <TouchableOpacity 
+        onPress={handleSearch} 
+        style={styles.button}
+      >
+        <Text style={styles.buttonText}>Search</Text>
       </TouchableOpacity>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -53,11 +55,18 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   button: {
-    width: 44,
+    paddingHorizontal: 16,
     height: 44,
     backgroundColor: '#007AFF',
     borderRadius: 8,
     justifyContent: 'center',
     alignItems: 'center',
   },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: '600',
+  },
 });
+
+export default SearchBar;

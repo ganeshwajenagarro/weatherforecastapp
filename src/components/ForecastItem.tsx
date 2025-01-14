@@ -1,12 +1,13 @@
+// src/components/ForecastItem/index.tsx
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
-import { ForecastDay } from '../types/weather';
+import { ForecastDay } from '../../types/weather';
 
 interface Props {
   forecast: ForecastDay;
 }
 
-export const ForecastItem: React.FC<Props> = ({ forecast }) => {
+function ForecastItem({ forecast }: Props) {
   return (
     <View style={styles.container}>
       <View style={styles.dateContainer}>
@@ -14,9 +15,7 @@ export const ForecastItem: React.FC<Props> = ({ forecast }) => {
       </View>
       <View style={styles.weatherContainer}>
         <Image
-          source={{
-            uri: `https://openweathermap.org/img/wn/${forecast.icon}@2x.png`,
-          }}
+          source={{ uri: `https:${forecast.icon}` }}
           style={styles.icon}
         />
         <Text style={styles.description}>{forecast.description}</Text>
@@ -27,13 +26,13 @@ export const ForecastItem: React.FC<Props> = ({ forecast }) => {
       </View>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 16,
+    padding: 12,
     backgroundColor: 'white',
     borderRadius: 12,
     marginBottom: 8,
@@ -62,7 +61,7 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 14,
     marginLeft: 8,
-    textTransform: 'capitalize',
+    flex: 1,
   },
   tempContainer: {
     flex: 2,
@@ -79,3 +78,5 @@ const styles = StyleSheet.create({
     color: '#666',
   },
 });
+
+export default ForecastItem;

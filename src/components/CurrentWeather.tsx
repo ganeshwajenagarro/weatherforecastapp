@@ -1,15 +1,13 @@
-// src/components/CurrentWeather.tsx
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { WeatherData } from '../types/weather';
+import { WeatherData } from '../../types/weather';
 
 interface Props {
   data: WeatherData['current'];
   location: WeatherData['location'];
 }
 
-export const CurrentWeather: React.FC<Props> = ({ data, location }) => {
+function CurrentWeather({ data, location }: Props) {
   return (
     <View style={styles.container}>
       <Text style={styles.location}>
@@ -24,17 +22,15 @@ export const CurrentWeather: React.FC<Props> = ({ data, location }) => {
       <Text style={styles.description}>{data.condition}</Text>
       <View style={styles.detailsContainer}>
         <View style={styles.detailItem}>
-          <Icon name="water-outline" size={24} color="#666" />
-          <Text style={styles.detailText}>{data.humidity}%</Text>
+          <Text style={styles.detailText}>Humidity: {data.humidity}%</Text>
         </View>
         <View style={styles.detailItem}>
-          <Icon name="wind-outline" size={24} color="#666" />
-          <Text style={styles.detailText}>{data.windSpeed} km/h</Text>
+          <Text style={styles.detailText}>Wind: {data.windSpeed} km/h</Text>
         </View>
       </View>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -88,3 +84,5 @@ const styles = StyleSheet.create({
     color: '#666',
   },
 });
+
+export default CurrentWeather;
